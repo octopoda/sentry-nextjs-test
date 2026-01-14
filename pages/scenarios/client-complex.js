@@ -37,7 +37,7 @@ const hydrateEvent = event => {
 
   return {
     ...event,
-    metrics: event.metrics ?? undefined,
+    metrics: event.metrics ?? [],
   };
 };
 
