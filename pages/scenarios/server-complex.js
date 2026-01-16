@@ -10,7 +10,7 @@ class WarehouseSnapshotError extends Error {
 }
 
 const loadSnapshotBlob = () => {
-  return process.env.WAREHOUSE_SNAPSHOT ?? '{"warehouse":"phx"}';
+  return process.env.WAREHOUSE_SNAPSHOT || '{"warehouse":"phx"}';
 };
 
 const parseSnapshot = blob => {
