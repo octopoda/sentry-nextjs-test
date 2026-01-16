@@ -12,8 +12,10 @@ export default function CrossBoundaryScenario() {
         },
         body: JSON.stringify({
           order: {
-            items: [],
-            shippingCountry: 'AQ',
+            items: [
+              { id: '001', name: 'Product A', quantity: 1, price: 29.99 },
+            ],
+            shippingCountry: 'US',
           },
         }),
       });
@@ -42,12 +44,10 @@ export default function CrossBoundaryScenario() {
 
   return (
     <main>
-      <h1>Client Visible, Server Root Cause</h1>
+      <h1>Successful Order Submission</h1>
       <p>
-        The browser attempts to submit an order. The API rejects the payload due to missing line
-        items, producing a server-side <code>OrderValidationError</code>. The client catches the HTTP
-        failure and rethrows a new error with the server failure attached as <code>cause</code> so you
-        can correlate both events in Sentry.
+        The browser submits a valid order with line items to a supported shipping country.
+        The API validates and accepts the order successfully.
       </p>
       <Link href="/">← Back to index</Link>
     </main>
